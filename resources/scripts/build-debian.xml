@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+
+<!-- build-debian: make the debian-package -->
+
+    <property name="version" value="${pm.version}-1"/>
+    <property name="debian.dir" value="${build.dir}/debian/photo-man"/>
+    
+    
+    <delete dir="${debian.dir}"/>    
+    <mkdir dir="${debian.dir}/photo-man"/>
+    
+  
+    
+    
+    <!-- ******************************************************************* -->
+    <!-- **************** usr/local              *************************** -->
+    <!-- **************** usr/local/lib          *************************** -->
+    <!-- **************** usr/local/bin          *************************** -->
+    <!-- **************** usr/local/share        *************************** -->
+    <!-- **************** usr/local/share/man    *************************** -->
+    <!-- ******************************************************************* -->
+    <property name="local" value="${debian.dir}/photo-man/usr/local"/>
+    <mkdir dir="${local}/bin"/>
+    <mkdir dir="${local}/lib"/>
+    <mkdir dir="${local}/share"/>
+    <!-- **************** usr/local/bin          *************************** -->
+    <echo file="${local}/bin/photo-man">#! /bin/sh
+export LANG=de_DE.iso88591
+java -XX:+UseConcMarkSweepGC -Xms500M -Xmx800M  -jar /usr/local/lib/photo-man/pm.jar  $@
+
+</echo>   
+    
+   
+    
+    <!-- **************** usr/local/lib          *************************** -->  
+    <copy todir="${local}/lib/photo-man"  file="build/pm.jar">
+        <fileset dir="${lib.dir}" includes="*.jar" />
+    </copy>
+    
+    <!-- **************** usr/local/share        *************************** -->
+    <copy todir="${local}/share/man" >
+        <fileset dir="docu/man" includes="**/*" />
+   </copy>
+    <!-- ******************************************************************* -->
+    <!-- **************** DEBIAN/controll        *************************** -->
+    <!-- ******************************************************************* --> 
+    <property name="control" value="${debian.dir}/photo-man/DEBIAN"/>   
+    <mkdir dir="${control}"/>
+    <echo file="${control}/control">Package: photo-manager
+Section: graphics
+Priority: extra
+Maintainer: Dietrich Hentschel
+Architecture: all
+Version: ${version}
+Description: photo manager with GUI
+</echo>  
+    
+    <!-- ********************************************************************* -->
+    <!-- **************** usr/share                *************************** -->
+    <!-- **************** usr/share/doc            *************************** -->
+    <!-- **************** usr/share/doc/copyright  *************************** -->
+    <!-- **************** usr/share/doc/changelog  *************************** -->
+    <!-- **************** usr/share/pixmaps        *************************** -->
+    <!-- ********************************************************************* -->
+   
+    <!-- /usr/share/pixmaps  erstellen  -->
+    <copy todir="${debian.dir}/photo-man/usr/share/pixmaps" >
+        <fileset dir="resources/pixmaps" includes="**/*" />
+   </copy>
+   
+   
+    
+    <!-- **********  usr/share/doc ************* --> 
+    <property name="doc" value="${debian.dir}/photo-man/usr/share/doc/photo-man"/>
+    <mkdir dir="${doc}"/>
+    <!-- ********** usr/share/doc/copyright ******** -->
+    <tstamp>
+        <format property="TODAY" pattern="dd.MM.yyyy"  />
+    </tstamp>
+    <echo file="${doc}/copyright">
+This package was manually createt by Dietrich Hentschel
+
+Date: ${TODAY}
+
+    </echo>  
+   
+   <!-- ******* usr/share/doc/changelog.Debian.gz  erstellen  -->
+   <echo file="${doc}/changelog.Debian">
+photo-man (${pm.version}) unstable; urgency=low
+
+first release
+
+    </echo>  
+    <exec executable="gzip" >
+        <arg line="-9 ${doc}/changelog.Debian" />
+    </exec>
+    
+    <!-- *************************************************************** -->
+    <!-- **************** control.tar.gz     *************************** -->
+    <!-- **************** data.tar.gz        *************************** -->
+    <!-- **************** debian-binary      *************************** -->
+    <!-- *************************************************************** -->
+    
+   
+    <tar destfile="${debian.dir}/control.tar.gz" 
+        compression="gzip"
+        basedir="${debian.dir}/photo-man/DEBIAN/."
+    />
+     
+   
+    <tar destfile="${debian.dir}/data.tar.gz" 
+            compression="gzip" 
+            basedir="${debian.dir}/photo-man"  
+            excludes="**/DEBIAN/**  **/bin/photo-man" >
+        <tarfileset  dir="${debian.dir}/photo-man"
+            includes="usr/local/bin/photo-man" mode="755" />
+    </tar>
+    
+    <echo file="${debian.dir}/debian-binary">2.0
+    </echo>  
+   
+   <!--   ***** all together *********** -->
+ <property name="files" value="${debian.dir}/debian-binary ${debian.dir}/control.tar.gz ${debian.dir}/data.tar.gz"/>
+    <exec executable="ar" >
+        <arg line=" rcu  ${build.dir}/photo-manager_${version}.deb ${files} " />
+    </exec>
+   
+    
+
+   
+
+</project>
+

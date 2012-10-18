@@ -1,0 +1,51 @@
+Photo Manager is a program to manage digitals images.
+It is written in Java with swing and lucene as database.
+
+(1) Requirements
+================
+
+To run the program you must install a Java runtime environment.
+Either openJDK or sun's jre version 5 or higher.
+
+To compile the program you must have the respective jdk.
+
+(2) Compile the program
+=======================
+
+You need ant (the build tool from apache) to build the 
+application.
+
+- to compile run:               ant compile
+- to make the jar file run:     ant jar
+- to make a debian package:     ant debian
+- to make OS independet zip:    ant zip
+
+(3) Browsing and change the source code
+=======================================
+
+Before you try to understand the program structure it is
+strongly recommended to run "ant javadoc" to create the API 
+documentation and have a look on the general overview.
+
+You start the API documentation with your favorite browser.
+Here you find the index file: "build/javadoc/index.html".
+  
+You can browse and modify the source code with eclipse.
+In the src directory (the source code starting directory) there
+are the files ".classpath" and ".project" for eclipse.
+
+The program use pure swing and is NOT build with any 
+gui bilder. Therefore it is not necessary to run eclipse 
+but it is recommended.
+
+
+(3) Make a Window exec file
+===========================
+
+You make the exec file with the free installer for Windows programs "Inno setup".
+Download it from   "http://www.jrsoftware.org/isinfo.php"
+
+The setup file is in the svn repository:
+ 
+   resources/scripts/windows-setup-script.iss
+

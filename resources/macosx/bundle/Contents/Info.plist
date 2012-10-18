@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>PhotoManager</string>
+	<key>CFBundleIdentifier</key>
+	<string>pm.PM_Start</string>
+	<key>CFBundleVersion</key>
+	<string>1.2.4</string>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<string>true</string>
+	<key>CFBundleExecutable</key>
+	<string>JavaApplicationStub</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleIconFile</key>
+	<string>photo-manager.icns</string>
+	<key>Java</key>
+	<dict>
+		<key>VMOptions</key>
+		<string>-XX:+UseConcMarkSweepGC -Xms500Mm -Xmx800Mm</string>
+		<key>MainClass</key>
+		<string>pm.PM_Start</string>
+		<key>JVMVersion</key>
+		<string>1.5+</string>
+		<key>ClassPath</key>
+		<array>
+			<string>$JAVAROOT/pm.jar</string>
+			<string>$JAVAROOT/dom4j-1.5.2.jar</string>
+			<string>$JAVAROOT/java-getopt-1.0.13.jar</string>
+			<string>$JAVAROOT/jaxen-1.1-beta-4.jar</string>
+			<string>$JAVAROOT/lucene-core-2.1.0.jar</string>
+			<string>$JAVAROOT/metadata-extractor-2.2.2.jar</string>
+		</array>
+		<key>Properties</key>
+		<dict>
+			<key>apple.laf.useScreenMenuBar</key>
+			<string>true</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

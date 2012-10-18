@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="resources/lib/dom4j-1.5.2.jar"/>
+	<classpathentry kind="lib" path="resources/lib/java-getopt-1.0.13.jar"/>
+	<classpathentry kind="lib" path="resources/lib/jaxen-1.1-beta-4.jar"/>
+	<classpathentry kind="lib" path="resources/lib/lucene-core-2.1.0.jar"/>
+	<classpathentry kind="lib" path="resources/lib/metadata-extractor-2.2.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-6-openjdk-i386"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

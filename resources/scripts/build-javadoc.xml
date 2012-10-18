@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<project name="photo-manager"  >
+
+<!-- javadoc -->
+
+
+   
+  <javadoc doctitle ="Photo Manager 1.2 (dies ist doctitle)"
+	header="dies ist der header"
+	footer="dies ist der footer"
+	bottom="dies ist bottom"
+	   packagenames="*"
+           classpath="${classpath}"
+           sourcepath="${src.dir}"
+           Encoding="8859_1"
+           Overview="${src.dir}/overview.html"
+           destdir="${build.dir}/javadoc"
+            >
+  </javadoc>
+
+</project>
+

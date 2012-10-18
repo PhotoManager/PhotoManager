@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+
+<!-- build-install-debian: make the debian-package -->
+
+    <property name="version" value="${pm.version}-1"/>
+    <property name="debian.dir" value="${build.dir}/debian/photo-man"/>
+    
+    
+         <echo>
+************************************************ 
+***********  install debian (mit gksu) ********* 
+************************************************ 
+    </echo>
+    
+   
+   
+   <!--   ***** all together *********** -->
+    <exec executable="gksu" >
+        <arg line=' "dpkg -i  ${build.dir}/photo-manager_${version}.deb " ' />
+    </exec>
+   
+    
+
+   
+
+</project>
+

@@ -1,0 +1,16 @@
+
+Photo Manager is a program to manage your digital photos
+========================================================
+
+The zip file contains all jar files you need.
+Unzip this file.
+You need the java jre of sun version 5 and upwards.
+
+Start the program:
+
+java -XX:+UseConcMarkSweepGC -Xms500M -Xmx800M  -jar pm.jar
+
+If you have questions or remarks write to the author:
+
+dihent@freenet.de
+    

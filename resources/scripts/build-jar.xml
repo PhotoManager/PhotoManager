@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+
+<!-- build-jar  -->
+
+
+        <tstamp>
+            <format property="TODAY" pattern="dd.MM.yyyy HH:mm"  />
+        </tstamp>
+
+
+
+
+    <property name="p-file" value="pm-properties.txt"/>
+
+       <echo file="${build.dir}/${p-file}">
+pm-version:         ${pm.version}
+date-compiled:      ${TODAY}
+compiler-version:   ${java.version}
+</echo>
+      
+      
+      
+         <copy todir="${build.dir}/properties" >
+            <fileset dir="${src.dir}" includes="*.properties" />
+        </copy>
+      
+      
+        
+        <delete file="${build.dir}/pm.jar"/>
+        <jar destfile="${build.dir}/pm.jar"     includes="resources/properties/*" >
+            <fileset dir="${build.dir}/classes" />
+            <fileset dir="resources" includes="images/*"/>
+            <fileset file="${build.dir}/${p-file}" />        
+            <fileset dir="${build.dir}/properties" />
+            
+            <manifest>
+                <attribute name="Main-Class" value="pm.PM_Start"/>
+                <attribute name="Created-By" value="Dietrich Hentschel"/>
+                <attribute name="Class-Path" value="./dom4j-1.5.2.jar ./jaxen-1.1-beta-4.jar  ./lucene-core-2.1.0.jar ./metadata-extractor-2.2.2.jar ./java-getopt-1.0.13.jar .\dom4j-1.5.2.jar .\jaxen-1.1-beta-4.jar  .\lucene-core-2.1.0.jar .\metadata-extractor-2.2.2.jar .\java-getopt-1.0.13.jar"/>
+            </manifest>
+        </jar>
+    
+    <delete file="${p-file}" />
+
+
+</project>
+

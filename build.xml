@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" default="package" basedir=".">
+
+
+   
+    <property name="pm.version" value="1.2.4-1"/>
+    <property name="pm" value="photo-manager"/>
+     
+    
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="lib.dir" value="resources/lib"/>
+    <property name="image.dir" value="resources/images"/>
+    <property name="scripts" value="resources/scripts"/>   
+    <property name="classpath" value="${lib.dir}/dom4j-1.5.2.jar:${lib.dir}/lucene-core-2.1.0.jar:${lib.dir}/metadata-extractor-2.2.2.jar:${lib.dir}/java-getopt-1.0.13.jar"/>
+
+    <target name="init">
+        <delete dir="${build.dir}"/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/classes"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <ant antfile="${scripts}/build-compile.xml" />
+    </target>
+
+    <target name="jar"  depends="compile" >
+        <ant antfile="${scripts}/build-jar.xml" />
+    </target>
+
+    <target name="debian" depends="jar"   >
+        <ant antfile="${scripts}/build-debian.xml" />
+    </target>
+
+    
+    <target name="zip"  depends="debian" >
+        <ant antfile="${scripts}/build-zip.xml" />
+    </target>
+  
+    <target name="sourceforge"  depends="zip" >
+        <ant antfile="${scripts}/build-sourceforge.xml" />
+    </target>
+
+    <target name="javadoc"   depends="init" >
+        <ant antfile="${scripts}/build-javadoc.xml" />
+    </target>
+
+    <target name="install-debian"  depends="debian">
+        <ant antfile="${scripts}/build-install-debian.xml" />
+    </target>
+
+    <target name="macosx-application-bundle"  depends="jar">
+        <ant antfile="${scripts}/build-macosx-app.xml" />
+    </target>
+
+</project>
+

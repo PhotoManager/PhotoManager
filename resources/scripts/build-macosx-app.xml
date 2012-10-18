@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+	
+	<!-- build-macosx-app: make the Mac OS X application bundle -->
+	
+    <property name="version" value="${pm.version}-1"/>
+    <property name="macosx.app" value="${build.dir}/macosx/PhotoManager.app"/>
+    <property name="macosx.stub" value="resources/macosx/bundle"/>
+    
+    <echo>
+**********************************************************
+***********  Make Mac OS X application bundle  ***********
+**********************************************************
+    </echo>
+   	
+    <delete dir="${build.dir}/macosx" verbose="yes"/>
+    <mkdir dir="${macosx.app}"/>
+   	
+    <copy todir="${macosx.app}" verbose="yes">
+    	<fileset dir="${macosx.stub}"/>
+    </copy>
+	
+	<chmod perm="+x" file="${macosx.app}/Contents/MacOS/JavaApplicationStub" verbose="yes"/>
+	
+    <copy todir="${macosx.app}/Contents/Resources/Java" file="build/pm.jar" verbose="yes">
+    	<fileset dir="${lib.dir}" includes="*.jar"/>
+    </copy>
+	
+</project>

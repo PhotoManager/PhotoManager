@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+
+
+   
+    
+    
+    
+       
+         
+        <delete dir="${build.dir}/classes"/>
+        <mkdir dir="${build.dir}/classes"/>     
+        <javac 
+            srcdir="${src.dir}" 
+            destdir="${build.dir}/classes"
+            encoding="iso8859_1"
+            classpath="${classpath}"  
+        />
+    
+
+     
+
+</project>
+

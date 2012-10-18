@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+
+<!-- build-zip: make the zip file for distribution -->
+
+    <property name="version" value="${pm.version}-1"/>
+    <property name="zip-file" value="${build.dir}/${pm}_${pm.version}.zip"/>
+    <property name="zip-dir" value="${build.dir}/zip"/>
+    
+    
+     <delete dir="${zip-dir}"/>
+     <mkdir dir="${zip-dir}"/>
+    
+    <!-- **************** lib ********************* -->
+     <copy todir="${zip-dir}"  file="build/pm.jar">
+        <fileset dir="${lib.dir}" includes="*.jar" />
+    </copy>
+     <!-- **************** docu pdf ********************* -->
+     <copy todir="${zip-dir}"  file="docu/user-manual.pdf" />
+     
+     
+    <!-- **************** README for zip-file     *************************** -->
+    <echo file="${zip-dir}/README">
+Photo Manager is a program to manage your digital photos
+========================================================
+
+The zip file contains all jar files you need.
+Unzip this file.
+You need the java jre of sun version 5 and upwards.
+
+Start the program:
+
+java -XX:+UseConcMarkSweepGC -Xms500M -Xmx800M  -jar pm.jar
+
+If you have questions or remarks write to the author:
+
+dihent@freenet.de
+    </echo>      
+    
+   <!-- **************** zippen und nach build bringen    *************************** -->
+    
+    <zip destfile="${build.dir}/${pm}_${pm.version}.zip" 
+            basedir="${zip-dir}"
+     />
+
+   
+
+</project>
+

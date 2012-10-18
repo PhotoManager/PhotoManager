@@ -1,0 +1,97 @@
+.TH "photo-man" "1" "1.2" "Dietrich Hentschel" "User Commands"
+.SH "NAME"
+.LP 
+photo\-man \- ein Foto\-Verwaltungsprogramm mit GUI
+.SH "SYNTAX"
+.LP 
+photo\-man [parameter]
+.SH "BESCHREIBUNG"
+.LP 
+PM (photo\-manager) ist ein Programm zur Verwaltung digitale Fotos in einem Fotoalbum mit umfangreichen Suchfunktionen und zeigen der Sammlung mit einer Diashow.
+.LP 
+Beim ersten Start fragt PM nach dem Top Level Directory (TLD). Im oder unterhalb dieses Verzeichnisses befinden sich alle Bilder, die von PM verwaltet werden. PM verändert oder verschiebt keine Bilder.
+.LP 
+Nach jedem Start sucht das Programm nach neuen Bildern im oder unterhalb des TLDs. Sind neue Bilder vorhanden werden Thumbsnails erzeugt, die links dargestellt werden.
+.LP 
+Die grafische Oberfläche ist zweigeteilt:
+.br 
+links die Bilder in der Übersicht als Thumbnails, 
+.br 
+rechts 7 Arbeitsfenster, in die mit Tabs gewechselt wird. 
+.TP 
+.I \fBArbeitsfenster Suchen\fR
+.LP 
+Oben Bereich zur Suche von Bildern über: Datum, Kategorie, Serie und Indizes.
+.br 
+Unter links (2 Reiter) das Fotoalbum und die Tabelle der vergebenen Indizes.
+.br 
+Unten rechts (4 Reiter) die Liste der neuen Bilder, B\- und X\-Serien und der Dateibaum der Bilder wie auf der Festplatte. 
+.TP 
+.I \fBArbeitsfenster Serien\fR
+.LP 
+Verwaltung der B\- und X\-Serien. 
+.br 
+B\-Serien sind Basis Serien. Jedes Bild darf nur \fIeiner\fR Basis Serie zugeordnet sein.
+.br 
+X\-Serien sind erweiterte (eXtended) Serien. Jedes Bild kann mehreren Serien zugeordnet sein.
+.br 
+Serien werden in gesonderten "Bäumen" eingetragen, die nicht mit dem Fotoalbum identisch sind. Das eintragen von Serien ins Fotoalbum erfolgt im Arbeitsfenster "Suchen" mit Drag&dDrop.
+.TP 
+.I \fBArbeitsfenster Bild\fR
+.LP 
+Vergabe von u.a. Suchindizes und Bildbeschreibungen zu \fIeinem\fR Bild.
+.TP 
+.I \fBArbeitsfenster Gruppe\fR
+.LP 
+Vergabe von Suchindizes gleichzetig zu \fImehreren\fR Bildern.
+.TP 
+.I \fBArbeitsfenster Drucken\fR
+.LP 
+Drucken von Bildern: ein, zwei, vier oder sechs Bilder auf eine Seite.
+.TP 
+.I \fBArbeitsfenster Export\fR
+.LP 
+Exportieren und Löschen von Bildern. Dies ist die einzige Stelle in PM, in der Bilder gelöscht werden. 
+.TP 
+.I \fBArbeitsfenster Import\fR
+.LP 
+Importieren von Bildern.
+Intern: Die zu importierenden Bilder befinden sich im und unterhalb des Bilderverzeichnisses.
+Extern: Die zu importierenden Bilder befinden sich ausserhalb des Bilderverzeichnisses.
+.TP 
+.I \fBArbeitsfenster Info\fR
+.LP 
+Anzeige der EXIF\-Informationen zu jedem Bild
+.TP 
+.I \fBDiashow\fR
+.LP 
+Wenn Diashow aufgerufen, dann Funktionstaste F2 (weiter mit Pfeiltasten), F3 (automatisch nächstes Bild) und F3 (random).
+
+
+
+
+ 
+.SH "PARAMETER"
+.LP 
+.TP 
+\fB\-b\fR <\fIdirectory\fP>
+Top Level <\fIdirectory\fP> der Bilder .
+.br 
+Wenn nicht abgegeben wird <\fIdirectory\fP> nach erstem Programmstart angefordert und in die Konfigurationsdatei eingetragen.
+ 
+.SH "DATEIEN"
+.TP 
+.I ~/.photo\-manager/pm_einstellungen.xml
+.br 
+Konfigurationsdatei.
+.br 
+Wird nach \fIerstem\fR Programmaufruf angelegt. Kann danach modifiziert werden.
+.SH "BEKANNTE FEHLER"
+Arbeitsfenster "Suchen": Fehler bei Eingabe in "Datum bis".
+.PP 
+Die Festplattenuebersicht im Arbeitsfenster "Suchen" wird nicht richtig dargestellt.
+.SH "AUTOR"
+.LP 
+Dietrich Hentschel <dietrich.hentschel@freenet.de>
+.SH "FEHLER MELDEN"
+Fehler an Autor melden.

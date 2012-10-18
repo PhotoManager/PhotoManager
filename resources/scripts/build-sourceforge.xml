@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<project name="photo-manager" >
+
+<!-- build-sourceforge: make SOURCE-FORGE dir  -->
+
+    
+    
+    <property name="sourceforge-dir" value="${build.dir}/SOURCE-FORGE-${pm.version}"/>
+    
+    
+     <delete dir="${sourceforge-dir}"/>
+     <mkdir dir="${sourceforge-dir}"/>
+    
+    <!--  ******************* kopieren alles was bis jetzt fertig ist ************ -->
+    
+    
+    <copy tofile="${sourceforge-dir}/README" 
+                    preservelastmodified="yes" file="docu/README-sourceforge"  />
+    <copy tofile="${sourceforge-dir}/${pm}_${pm.version}.pdf" 
+                    preservelastmodified="yes" file="docu/user-manual.pdf"  />
+    
+    
+    
+    <copy todir="${sourceforge-dir}" preservelastmodified="yes" >
+        <fileset dir="${build.dir}" includes="*.deb *.zip" />
+    </copy>
+    
+    
+   
+    <!-- **********************  echo was noch fehlt ************************** -->
+    <echo>
+*****************************************************************************
+***********  jetzt noch das Windows setup mit "innoSetup" erstellen ********* 
+***********   
+***********  NICHT VERGESSEN MITZUNEHMEN:
+***********  	windows-setup-script.iss 
+***********  	pm.jar 
+***********  	user-manual.pdf 
+*********************************************************************
+    </echo>
+    
+   
+
+</project>
+
