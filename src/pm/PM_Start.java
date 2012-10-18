@@ -96,9 +96,7 @@ public class PM_Start implements PM_Interface, Runnable {
 		PM_MSG.setAndFileUIManager();
 		// now the demon can get the TLPD
 		demon.initConfigDone();
-		
-		
-		
+
 		if (!PM_Configuration.getInstance().getBatch()) {
 
 			UIManager.LookAndFeelInfo[] lafs = UIManager
