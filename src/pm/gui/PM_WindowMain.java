@@ -164,16 +164,11 @@ System.out.println("divider location: " + location);
 		// --- DiaShow ----
 		dialogDiaShow = new JDialog(this, true);
 		windowDiaShow = new PM_WindowSlideshow(this, dialogDiaShow);
-		Dimension d = PM_Utils.getScreenSize();
-		
-	 	windowDiaShow.setPreferredSize(new Dimension(1024-26, 768-26));
-		
-		windowDiaShow.setBounds(26, 0, 1000, 750);
-//                int y,
-//                int width,
-//                int height)
-//                top=0,left=26,bottom=26,right=0]
-//screenSize. java.awt.Dimension[width=1024,height=768]
+//		Dimension d = PM_Utils.getScreenSize();
+		windowDiaShow.setPreferredSize(PM_Utils.getScreenSize());	
+//	 	windowDiaShow.setPreferredSize(new Dimension(1024-26, 768-26));
+//		windowDiaShow.setBounds(26, 0, 1000, 750);
+ 
 		
 		
 		dialogDiaShow.setUndecorated(true);
