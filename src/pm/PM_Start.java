@@ -94,7 +94,7 @@ public class PM_Start implements PM_Interface, Runnable {
 		
 		
 		PM_MSG.setAndFileUIManager();
-		// now the demon can get the TLPD  
+		// now the demon can get the TLPD
 		demon.initConfigDone();
 		
 		
